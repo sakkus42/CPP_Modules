@@ -1,6 +1,6 @@
 CC = c++
-FLAGS = -Wall -Wextra -Werror
-STD = -std=c++98
+FLAGS = -Wall -Wextra -Werror -g
+
 NAME = PhoneBook
 
 all: $(NAME)

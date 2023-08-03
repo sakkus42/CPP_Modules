@@ -1,25 +1,17 @@
-#include "main.hpp"
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
-int main()
-{
-	Contact		contact[8];
-	PhoneBook	phoneBook(contact);
-	while (1)
+int main(){
+	Contact contact[8];
+	PhoneBook phoneBook(contact);
+	std::string input;
+	do
 	{
-		std::string input;
-		input = Contact::get_input("Enter the action you want to do {ADD, SEARCH, EXIT}");
-		phoneBook.main_menu(input);
-		for (size_t i = 0; i < 8; i++)
-		{
-			if (contact[i].is_empty)
-				break;
-			std::cout << contact[i].get_firstName() << std::endl;
-			std::cout << contact[i].get_lastName() << std::endl;
-			std::cout << contact[i].get_nickName() << std::endl;
-			std::cout << contact[i].get_secret() << std::endl;
-			std::cout << contact[i].get_phoneNbr() << std::endl;
-			std::cout << contact[i].index << std::endl;
-		}
-	}
-	return(0);
+		input = Contact::input("ADD (to 'ADD' to include the person)\nSEARCH (Type a 'SEARCH' to get brief information about people and find the person you want)\nEXIT (For exit, type exit)\n");
+		if (input == "ADD")
+			phoneBook.add();
+		else if (input == "SEARCH")
+			phoneBook.search();
+	} while (input != "EXIT");
+	return (0);
 }
