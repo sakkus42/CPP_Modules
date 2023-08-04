@@ -11,7 +11,4 @@ $(NAME): megaphone.cpp
 clean:
 	rm -rf $(NAME)
 
-fclean:
-	rm -rf $(NAME)
-
 re: fclean all
