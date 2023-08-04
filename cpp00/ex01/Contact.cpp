@@ -6,6 +6,8 @@ std::string  Contact::input(std::string message){
     std::getline(std::cin, input);
     if (!(std::cin.good()))
         exit(1);
+    if (input.empty())
+        input = Contact::input(message);
     return (input);
 }
 

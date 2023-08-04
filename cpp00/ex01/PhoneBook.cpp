@@ -13,12 +13,14 @@ void    PhoneBook::add(){
 }
 
 void    PhoneBook::writeCell(std::string str){
+    std::cout << std::setfill(' ');
     if (str.length() > 10)
         str = str.substr(0,9) + ".";
     std::cout << "|" << std::setw(10) << str << std::flush;
 }
 
 void    PhoneBook::display(){
+    std::cout << std::setfill(' ');
     std::cout <<  std::setw(10) << std::flush;
     writeCell("Index");
     writeCell("First Name");
@@ -30,6 +32,7 @@ void    PhoneBook::display(){
     {
         if (contact[i].firstName.empty())
             break;
+        std::cout << std::setfill(' ');
         std::cout << std::setw(10) << std::flush;
         writeCell(contact[i].index);
         writeCell(contact[i].firstName);

@@ -4,6 +4,7 @@
 int main(){
 	Contact contact[8];
 	PhoneBook phoneBook(contact);
+	std::string input;
 	do
 	{
 		input = Contact::input("ADD (to 'ADD' to include the person)\nSEARCH (Type a 'SEARCH' to get brief information about people and find the person you want)\nEXIT (For exit, type exit)\n");
