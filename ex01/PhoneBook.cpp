@@ -13,36 +13,30 @@ void    PhoneBook::add(){
 }
 
 void    PhoneBook::writeCell(std::string str){
-    std::cout << std::setw(10);
-    str.length() + 1 >= 10 ? std::cout << str.substr(0, 9) << "." << "|" : std::cout << str << "|";
+    if (str.length() > 10)
+        str = str.substr(0,9) + ".";
+    std::cout << "|" << std::setw(10) << str << std::flush;
 }
 
 void    PhoneBook::display(){
-
+    std::cout <<  std::setw(10) << std::flush;
+    writeCell("Index");
+    writeCell("First Name");
+    writeCell("Last Name");
+    writeCell("Nickname");
+    std::cout << "|" << std::endl;
+    std::cout << std::endl;
     for (int i = 0; i < 8 && !(contact[i].firstName.empty()) ; i++)
     {
         if (contact[i].firstName.empty())
             break;
-        std::cout << std::setfill('*') << std::setw(44);
-        std::cout << "" << std::endl;
-        std::cout << std::setfill(' ');
-        if (i == 0)
-        {
-            writeCell("Index");
-            writeCell("First Name");
-            writeCell("Last Name");
-            writeCell("Nickname");
-            std::cout << std::endl;
-        }
+        std::cout << std::setw(10) << std::flush;
         writeCell(contact[i].index);
         writeCell(contact[i].firstName);
         writeCell(contact[i].lastName);
         writeCell(contact[i].nickName);
-        std::cout << std::endl;
+        std::cout << "|" << std::endl;
     }
-    std::cout << std::setfill('*') << std::setw(44);
-    std::cout << "" << std::endl;
-    std::cout << std::setfill(' ');
 }
 
 void    PhoneBook::search(){
