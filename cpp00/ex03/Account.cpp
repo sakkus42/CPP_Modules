@@ -27,7 +27,7 @@ Account::~Account(){
     _displayTimestamp();
     std::cout << "index:" << _accountIndex << ";"
               <<"amount:" << _amount << ";"
-              << "created" << std::endl;
+              << "closed" << std::endl;
 }
 
 // para çekme

@@ -20,20 +20,15 @@ void    PhoneBook::writeCell(std::string str){
 }
 
 void    PhoneBook::display(){
-    std::cout << std::setfill(' ');
-    std::cout <<  std::setw(10) << std::flush;
     writeCell("Index");
     writeCell("First Name");
     writeCell("Last Name");
     writeCell("Nickname");
     std::cout << "|" << std::endl;
-    std::cout << std::endl;
     for (int i = 0; i < 8 && !(contact[i].firstName.empty()) ; i++)
     {
         if (contact[i].firstName.empty())
             break;
-        std::cout << std::setfill(' ');
-        std::cout << std::setw(10) << std::flush;
         writeCell(contact[i].index);
         writeCell(contact[i].firstName);
         writeCell(contact[i].lastName);

@@ -10,6 +10,7 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
+#include <iostream>
 #include "Account.hpp"
 
 
@@ -59,7 +60,6 @@ int		main( void ) {
 
 	Account::displayAccountsInfos();
 	std::for_each( acc_begin, acc_end, std::mem_fun_ref( &Account::displayStatus ) );
-
 	return 0;
 }
 
