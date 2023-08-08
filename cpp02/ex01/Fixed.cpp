@@ -1,31 +1,30 @@
 #include "Fixed.hpp"
-#include <cmath>
 
 Fixed::Fixed() : fixedNbr(0) {}
 
-Fixed::Fixed(Fixed& fixed) {
-    *this = fixed;
+Fixed::Fixed(int nbr) : fixedNbr(nbr << 8) {}
+
+Fixed::Fixed(float nbr) {
+	fixedNbr = std::roundf(nbr * (1 << fractionalBits));
 }
 
-Fixed::Fixed(int value) : fixedNbr(value) {}
-
-Fixed::Fixed(float value) : fixedNbr(std::roundf(value * (1 << factionalBits))) {}
-
-Fixed::~Fixed(){}
-
-Fixed&    Fixed::operator=(Fixed& fixed){
-    *this = fixed;
-    return *this;
+Fixed::Fixed(Fixed const& fixed) {
+	this->fixedNbr = fixed.getRawBits();
 }
 
-int Fixed::getRawBits(){
-    return (this->fixedNbr);
+void	Fixed::operator=(Fixed const& fixed){
+	this->fixedNbr = fixed.getRawBits();
 }
 
-void Fixed::setRawBits(int nbr){
-    this->fixedNbr = nbr;
+int	Fixed::getRawBits() const{
+	return (this->fixedNbr);	
 }
 
-int Fixed::toInt(){
-    return this->fixedNbr >> factionalBits;
+int Fixed::toInt() const{
+	return (fixedNbr >> fractionalBits);
+}
+
+int Fixed::toFloat() const{
+	std::cout <<"fixed: " << fixedNbr << std::endl;
+	return (static_cast<float>(fixedNbr / (1 << fractionalBits)));
 }
