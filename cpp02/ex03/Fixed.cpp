@@ -6,7 +6,7 @@ Fixed::Fixed(Fixed const& fixed){
 	this->fixedNbr = fixed.getRawBits();
 }
 
-Fixed::Fixed(int nbr) : fixedNbr(nbr << fractionalBits){}
+Fixed::Fixed(int nbr) : fixedNbr(nbr << fractionalBits) {}
 
 Fixed::Fixed(float nbr) : fixedNbr(std::roundf(nbr * (1 << fractionalBits))) {}
 

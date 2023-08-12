@@ -1,7 +1,7 @@
 CC = c++
-FLAGS = -Wall -Wextra -Werror -g
-STD = -std=c++98
-NAME = PhoneBook
+FLAGS = -std=c++98 -Wall -Wextra -Werror -g 
+
+NAME = Fixed
 
 all: $(NAME)
 
@@ -11,4 +11,4 @@ $(NAME): *.cpp
 clean:
 	rm -rf $(NAME)
 
-re: fclean all
+re: clean all

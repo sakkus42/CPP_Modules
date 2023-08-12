@@ -6,5 +6,5 @@ int main(){
     Zombie *z1 =  Zombie::newZombie("aho");
     z1->announce();
     Zombie::randomChump("ysf");
-    delete z1;
+    // delete z1;
 }

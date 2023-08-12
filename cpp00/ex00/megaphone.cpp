@@ -17,7 +17,7 @@ void	to_upper_string(std::string *str){
 }
 
 int	main(int ac, char *arv[]){
-	ac == 1 ? message("Missing Argument", 1) : 0;
+	ac == 1 ? message("* LOUD AND UNBEARABLE FEEDBACK NOISE *", 1) : 0;
 	std::string *res = new std::string[ac];
 	int	y = 0;
 	for (int i = 1; i < ac; i++)
@@ -25,8 +25,6 @@ int	main(int ac, char *arv[]){
 		res[y] = arv[i];
 		to_upper_string(&res[y]);
 		std::cout << res[y];
-		if (i + 1 != ac)
-			std::cout << " ";
 		y++;
 	}
 	return (0);

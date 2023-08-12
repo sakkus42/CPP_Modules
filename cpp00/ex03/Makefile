@@ -1,6 +1,6 @@
 CC = c++
 FLAGS = -Wall -Wextra -Werror -g
-
+STD = -std=c++98
 NAME = tests
 
 all: $(NAME)

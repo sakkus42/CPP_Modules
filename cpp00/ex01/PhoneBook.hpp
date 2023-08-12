@@ -5,14 +5,14 @@
 
 class PhoneBook{
     private:
-        Contact *contact;
-        void           display();
+        int 			index;
+        Contact 		*contact;
+        void			display();
         void            writeCell(std::string s);
     public:
         PhoneBook(Contact *contact);
         void    add();
         void    search();
-        int index;
 };
 
 #endif

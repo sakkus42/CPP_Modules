@@ -5,7 +5,7 @@ Fixed::Fixed() : fixedNbr(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(int nbr) : fixedNbr(nbr << 8) {
+Fixed::Fixed(int nbr) : fixedNbr(nbr << fractionalBits) {
 	std::cout << "Int constructor called" << std::endl;
 }
 

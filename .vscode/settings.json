@@ -1,6 +1,11 @@
 {
-    "files.associations": {
+	"files.associations": {
+		"vector": "cpp",
+		"functional": "cpp",
+		"utility": "cpp",
 		"iostream": "cpp",
+		"ios": "cpp",
+		"string": "cpp",
 		"__bit_reference": "cpp",
 		"__config": "cpp",
 		"__debug": "cpp",
@@ -36,10 +41,8 @@
 		"deque": "cpp",
 		"exception": "cpp",
 		"fstream": "cpp",
-		"functional": "cpp",
 		"initializer_list": "cpp",
 		"iomanip": "cpp",
-		"ios": "cpp",
 		"iosfwd": "cpp",
 		"istream": "cpp",
 		"iterator": "cpp",
@@ -55,14 +58,11 @@
 		"stack": "cpp",
 		"stdexcept": "cpp",
 		"streambuf": "cpp",
-		"string": "cpp",
 		"string_view": "cpp",
 		"system_error": "cpp",
 		"tuple": "cpp",
 		"type_traits": "cpp",
 		"typeinfo": "cpp",
-		"unordered_map": "cpp",
-		"utility": "cpp",
-		"vector": "cpp"
+		"unordered_map": "cpp"
 	}
 }

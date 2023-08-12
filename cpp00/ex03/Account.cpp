@@ -66,7 +66,6 @@ void Account::makeDeposit(int deposit){
               << std::endl;
 }
 
-// objelerimiz için özel olan verileri yazdırıyoruz
 void Account::displayStatus() const{
     _displayTimestamp();
     std::cout << "index:" << _accountIndex << ";"
@@ -76,7 +75,6 @@ void Account::displayStatus() const{
               << std::endl;
 }
 
-// ortak verileri bilgisini gösteriyoruz
 void Account::displayAccountsInfos(){
     _displayTimestamp();
     std::cout << "accounts:" << getNbAccounts() << ";"
@@ -86,7 +84,6 @@ void Account::displayAccountsInfos(){
               << std::endl;
 }
 
-// zaman hesaplaması
 void Account::_displayTimestamp(){
     std::time_t result = std::time(NULL);
     std::tm *tm_local = std::localtime(&result);
@@ -99,10 +96,9 @@ void Account::_displayTimestamp(){
     std::cout << "[";
     std::cout << std::setfill('0') << year << std::setw(2) << month << std::setw(2) << day << "_";
     std::cout << std::setfill('0') << std::setw(2) << hour << std::setw(2) << min << std::setw(2) << sec;
-    std::cout << "]";
+    std::cout << "] ";
 }
 
-// GET FUNCS for static veriable tüm objelerimiz için ortak değerlerdir.
 int	Account::getNbAccounts( void ) {return _nbAccounts;}
 int	Account::getTotalAmount( void ) {return _totalAmount;}
 int	Account::getNbDeposits( void ) {return _totalNbDeposits;}
