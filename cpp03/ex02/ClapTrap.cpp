@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name){
+ClapTrap::ClapTrap(std::string const& name){
     std::cout << "ClapTrap constructor Run" << std::endl;
     this->name = name;
     this->hitPoints = 10;

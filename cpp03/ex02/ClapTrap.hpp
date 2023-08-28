@@ -8,7 +8,7 @@ class ClapTrap{
         unsigned int attackDamage;
         ClapTrap();
     public:
-        ClapTrap(std::string name);
+        ClapTrap(std::string const& name);
         ClapTrap(const ClapTrap& clapTrap);
         ~ClapTrap();
 

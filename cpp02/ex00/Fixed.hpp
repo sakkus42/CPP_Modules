@@ -11,7 +11,7 @@ class Fixed{
         Fixed();
         Fixed(Fixed& fixed);
         ~Fixed();
-        void    operator=(Fixed fixed);
+        Fixed&    operator=(Fixed fixed);
         int     getRawBits();
         void    setRawBits(int nbr);
 };

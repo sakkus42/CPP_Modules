@@ -1,12 +1,21 @@
 #include "Contact.hpp"
 
+static bool isFullSpace(std::string str){
+	for (size_t i = 0; i < str.length(); i++)
+	{
+		if (str[i] != ' ')
+			return (false);
+	}
+	return (true);
+}
+
 std::string  Contact::input(std::string message){
     std::cout << message << std::endl;
     std::string input;
     std::getline(std::cin, input);
     if (!(std::cin.good()))
         exit(1);
-    if (input.empty())
+    if (input.empty() || isFullSpace(input))
         input = Contact::input(message);
     return (input);
 }

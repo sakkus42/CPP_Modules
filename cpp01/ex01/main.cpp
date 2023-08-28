@@ -7,6 +7,5 @@ int main(){
     {
         z[i].announce();
     }
-	system("leaks Zombie");
-    // delete[] z;
+    delete[] z;
 }

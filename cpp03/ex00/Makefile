@@ -5,7 +5,7 @@ NAME = clapTrap
 
 all: $(NAME)
 
-$(NAME): *.cpp
+$(NAME): *.cpp 
 	$(CC) $(FLAGS) $(STD) $^ -o $@
 
 clean:

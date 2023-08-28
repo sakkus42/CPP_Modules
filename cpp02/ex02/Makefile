@@ -1,6 +1,6 @@
 CC = c++
-FLAGS = -std=c++98 -Wall -Wextra -Werror -g 
-
+FLAGS = -std=c++98 -Wall -Wextra -Werror
+STD = -std=c++98
 NAME = Fixed
 
 all: $(NAME)
