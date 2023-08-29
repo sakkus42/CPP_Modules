@@ -6,8 +6,8 @@ Cat::Cat() : Animal("Cat"){
 }
 
 Cat::~Cat(){
-    std::cout << "🐱Cat🐱 destructor" << std::endl;
     delete this->brain;
+    std::cout << "🐱Cat🐱 destructor" << std::endl;
 }
 
 Cat& Cat::operator=(Cat const& cat){

@@ -6,8 +6,8 @@ Dog::Dog() : Animal("Dog"){
 }
 
 Dog::~Dog(){
-    std::cout << "🐶Dog🐶 destructor" << std::endl;
     delete this->brain;
+    std::cout << "🐶Dog🐶 destructor" << std::endl;
 }
 
 Dog& Dog::operator=(Dog const& dog){

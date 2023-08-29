@@ -1,11 +1,11 @@
 CC = c++
-FLAGS =  -g
+FLAGS =  -Wall -Wextra -Werror
 STD = -std=c++98
-NAME = brain
+NAME = aanimal
 
 all: $(NAME)
 
-$(NAME): *.cpp *.hpp
+$(NAME): *.cpp
 	$(CC) $(FLAGS) $(STD) $^ -o $@
 
 clean:
