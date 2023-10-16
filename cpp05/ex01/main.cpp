@@ -13,5 +13,4 @@ void    bureaucratCrt(std::string name, int grade, Form form){
 
 int main(){
     bureaucratCrt("süleyman", 100, Form("Operation Water", 99, 0));
-
 }
