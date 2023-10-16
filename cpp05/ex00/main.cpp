@@ -9,18 +9,16 @@ void    bureaucratCrt(std::string name, int grade){
         std::cout << brt << std::endl;
         brt.incrementGrade();
         std::cout << brt << std::endl;
-    }catch(Bureaucrat::GradeTooHighException const& e){
-        std::cerr << e.what() << std::endl;
-    }catch(Bureaucrat::GradeTooLowException const& e){
+    }catch(std::exception& e){
         std::cerr << e.what() << std::endl;
     }
-    std::cout << "---------" << std::endl;
     std::cout << "the function of creation is over, rightly and wrongly"<< std::endl;
+    std::cout << "---------" << std::endl;
 }
 
 int main(){
-    bureaucratCrt("süleyman", 151); 
-    bureaucratCrt("ahmet", 0); 
+    bureaucratCrt("süleyman", 151);
+    bureaucratCrt("ahmet", 0);
     bureaucratCrt("Mark", 120); 
     bureaucratCrt("Recep", 89);
     bureaucratCrt("servet", 1);

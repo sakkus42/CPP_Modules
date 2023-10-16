@@ -1,5 +1,10 @@
+#pragma once
+
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat{
     private:
@@ -21,6 +26,8 @@ class Bureaucrat{
         
         class GradeTooHighException : public std::exception { public: const char * what () const throw (); };
         class GradeTooLowException  : public std::exception { public: const char * what () const throw (); };
+
+        void        signForm(Form& from);
 };
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat const& src);
