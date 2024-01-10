@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/sakkus/Desktop/CPP_Modules/cpp06/deneme",
-      "program": "/home/sakkus/Desktop/CPP_Modules/cpp06/deneme/build/Debug/outDebug",
+      "cwd": "/home/sakkus/Desktop/CPP_Modules/cpp06/ex00",
+      "program": "/home/sakkus/Desktop/CPP_Modules/cpp06/ex00/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
