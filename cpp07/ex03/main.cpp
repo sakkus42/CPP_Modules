@@ -1,18 +1,23 @@
 #include "Array.hpp"
 
-template <typename T>
-void iter (T& array, void(*f)(T), int index = 0) {
-        f(array[index]);
-        iter(array, f, index + 1);
+template <typename T, typename Func>
+void iter (T& array, Func f, int index = 0) {
+	if (index < (int)array.size()){
+		f(array[index]);
+		iter(array, f, index + 1);
+	}
 }
-
 
 template <typename T>
 void output(T any) {
-    std::cout << 1 << std::endl;
+    std::cout << any << std::endl;
+}
+
+template <typename T>
+void fillArrayInt(T& any) {
+	any = 1;
 }
 
 int main() {
-    Array<int> Int(25);
-    iter(Int, output);
+{
 }

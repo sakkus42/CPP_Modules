@@ -6,6 +6,7 @@ class ScalarConverter {
     private:
         static const std::type_info& whoIsType(std::string cast_string);
         static bool validString(std::string cast_string);
+		static bool isDigit(std::string cast_string);
     public:
         ScalarConverter();
         ~ScalarConverter();
