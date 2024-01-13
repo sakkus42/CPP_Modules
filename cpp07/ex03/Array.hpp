@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 
 template <typename T>
 
@@ -37,9 +38,16 @@ class Array{
         }
 
         T& operator[](size_t i) { 
-            if (i >= len) throw std::exception();
+            if (i >= len) throw Array::out_of_range();
             return (this->value[i]);
         }
+
+        class out_of_range : public std::exception{
+            const char* what() const throw(){
+                return "incorrect index";
+            }
+        };
+
 
         size_t size() const { return this->len; }
 };
