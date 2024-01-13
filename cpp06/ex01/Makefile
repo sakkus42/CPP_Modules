@@ -1,7 +1,7 @@
 CC = c++
 FLAGS =  -Wall -Wextra 
 STD = 
-NAME = scalar
+NAME = seri
 
 all: $(NAME)
 

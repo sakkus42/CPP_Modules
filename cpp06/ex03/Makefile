@@ -1,6 +1,6 @@
 CC = c++
 FLAGS =  -Wall -Wextra 
-STD = 
+STD =
 NAME = scalar
 
 all: $(NAME)

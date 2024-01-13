@@ -12,6 +12,10 @@ class ScalarConverter {
 			int		it;
 			float	flt;
 			double	dbl;
+            std::string chrStr;
+            std::string itStr;
+            std::string fltStr;
+            std::string dblStr;
 		} type_value;
     public:
         ScalarConverter();
