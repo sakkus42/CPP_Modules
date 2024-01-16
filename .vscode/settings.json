@@ -1,5 +1,6 @@
 {
   "files.associations": {
+    "*.ejs": "html",
     "vector": "cpp",
     "functional": "cpp",
     "utility": "cpp",
@@ -71,7 +72,13 @@
     "memory_resource": "cpp",
     "numeric": "cpp",
     "random": "cpp",
-    "numbers": "cpp"
+    "numbers": "cpp",
+    "list": "cpp",
+    "forward_list": "cpp",
+    "map": "cpp",
+    "cerrno": "cpp",
+    "climits": "cpp",
+    "queue": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",

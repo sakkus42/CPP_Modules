@@ -28,6 +28,8 @@ bool ScalarConverter::isDigit(std::string cast_string) {
 }
 
 bool  ScalarConverter::validString(std::string cast_str){
+	if (cast_str[0] == '-' || cast_str[0] == '+')
+		cast_str.erase(0, 1);
 	int flIndex = cast_str.find('f');
 	int dotIndex = cast_str.find('.');
 	std::string uniqInpt[] = {"nan", "+inf", "-inf"};
@@ -60,10 +62,9 @@ bool  ScalarConverter::validString(std::string cast_str){
 
 const std::type_info&  ScalarConverter::whoIsType(std::string cast_str){
 
-	if (cast_str.length() == 1) {
-		return(typeid(char));
-	}
-
+	if (cast_str[0] == '-' || cast_str[0] == '+')
+		cast_str.erase(0, 1);
+	
 	bool isDot = cast_str.find('.') == std::string::npos;
     try {
         std::stoi(cast_str);
@@ -72,6 +73,10 @@ const std::type_info&  ScalarConverter::whoIsType(std::string cast_str){
     } catch (const std::invalid_argument&) { 
     } catch (const std::out_of_range&) {
 		ScalarConverter::type_value.itStr = "imposible";
+	}
+
+	if (cast_str.length() == 1) {
+		return(typeid(char));
 	}
 	
 	try {

@@ -29,8 +29,7 @@ void printList (Data *head)
  
     std::cout << "XOR Linked List written:" << std::endl; 
  
-    while (curr != NULL) 
-    { 
+    while (curr != NULL) { 
         std::cout<<curr->value<<" "; 
         next = XOR (prev, curr->both);
         prev = curr; 
