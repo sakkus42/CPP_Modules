@@ -1,6 +1,6 @@
 CC = c++
 FLAGS =  -Wall -Wextra -Werror
-STD = 
+STD = -std=c++98
 NAME = template
 
 all: $(NAME)

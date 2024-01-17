@@ -1,5 +1,4 @@
 #include "iter.hpp"
-#include <cstdlib>
 
 template <typename T>
 void output(T x) {
@@ -7,15 +6,13 @@ void output(T x) {
 }
 
 
-
-
 int main() {
 
     int x[] = {1, 2, 3, 4, 5};
-    ::iter(x, 5, output);
+    iter(x, 5, output<int>);
 
     std::string array[] = {"v1", "v2", "v3", "v4"};
-    ::iter(array, 4, output);
+    iter(array, 4, output<std::string>);
 
 
 }
