@@ -17,10 +17,10 @@ class ScalarConverter {
             std::string fltStr;
             std::string dblStr;
 		} type_value;
-    public:
         ScalarConverter();
         ~ScalarConverter();
         ScalarConverter(ScalarConverter const& other);
         ScalarConverter& operator=(ScalarConverter const& other);
+    public:
         static void convert(std::string cast_string);
 };

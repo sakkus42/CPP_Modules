@@ -28,24 +28,19 @@ bool ScalarConverter::isDigit(std::string cast_string) {
 }
 
 bool  ScalarConverter::validString(std::string cast_str){
-	if (cast_str[0] == '-' || cast_str[0] == '+')
-		cast_str.erase(0, 1);
 	int flIndex = cast_str.find('f');
 	int dotIndex = cast_str.find('.');
-	std::string uniqInpt[] = {"nan", "+inf", "-inf"};
-	std::string uniqInptF[] = {"nanf", "+inff", "-inff"};
-	for (size_t i = 0; i < 3; i++)
-		if (cast_str.find(uniqInpt[i]) != std::string::npos){
+	std::string uniqInpt[] = {"nan", "+inf", "-inf", "inf"};
+	std::string uniqInptF[] = {"nanf", "+inff", "-inf", "inff"};
+	for (size_t i = 0; i < 4; i++)
+		if (cast_str.find(uniqInpt[i]) != std::string::npos || cast_str.find(uniqInptF[i]) != std::string::npos){
 			ScalarConverter::type_value.dblStr = uniqInpt[i];
 			ScalarConverter::type_value.fltStr = uniqInptF[i];
+			std::cout << uniqInptF[i]<< std::endl;
 			return true;
-		}
-	for (size_t i = 0; i < 3; i++)
-		if (cast_str.find(uniqInptF[i]) != std::string::npos){
-			ScalarConverter::type_value.fltStr = uniqInptF[i];
-			ScalarConverter::type_value.dblStr = uniqInpt[i];
-			return true;
-		}
+		}	
+	if (cast_str[0] == '+' || cast_str[0] == '-')
+		cast_str.erase(0, 1);
 	if (cast_str.length() == 1)
 		return true;
 	if (flIndex != -1 && dotIndex != -1 && dotIndex > flIndex)
@@ -62,38 +57,40 @@ bool  ScalarConverter::validString(std::string cast_str){
 
 const std::type_info&  ScalarConverter::whoIsType(std::string cast_str){
 
-	if (cast_str[0] == '-' || cast_str[0] == '+')
+	if (cast_str[0] == '+' || cast_str[0] == '-')
 		cast_str.erase(0, 1);
-	
 	bool isDot = cast_str.find('.') == std::string::npos;
+	bool isFloat = cast_str.find('f') == std::string::npos;
     try {
         std::stoi(cast_str);
-        if (isDot) return(typeid(int));
-        else std::stod("error run");
+        if (isDot && isFloat) 
+			return(typeid(int));
     } catch (const std::invalid_argument&) { 
     } catch (const std::out_of_range&) {
 		ScalarConverter::type_value.itStr = "imposible";
+		ScalarConverter::type_value.chrStr = "imposible";
 	}
+
+
+	
 
 	if (cast_str.length() == 1) {
 		return(typeid(char));
 	}
 	
-	try {
-		std::stod(cast_str);
-		if (cast_str.find('f') == std::string::npos) return(typeid(double));
-		else std::stod("error run");
-	} catch (const std::invalid_argument&) { 
-	} catch (const std::out_of_range&) {
-		ScalarConverter::type_value.dblStr = "imposible";
-	}
-
 	try { 
 		std::stof(cast_str);
-		return(typeid(float));
+		if (!isFloat) return(typeid(float));
+		std::stoi(cast_str);
 	} catch (const std::invalid_argument&) {
 	} catch (const std::out_of_range&) {
-		ScalarConverter::type_value.fltStr = "imposible";
+	}
+
+	try {
+		std::stod(cast_str);
+		return (typeid(double));
+	} catch (const std::invalid_argument&) { 
+	} catch (const std::out_of_range&) {
 	}
 
     return (typeid(false));
@@ -120,7 +117,12 @@ void ScalarConverter::convert(std::string cast_string){
 	}
 
     const std::type_info& type = whoIsType(cast_string);
-	if (type == typeid(int)) {
+	if (type == typeid(char)){
+		type_value.chr = cast_string[0];
+		type_value.it = static_cast<int>(type_value.chr);
+		type_value.flt = static_cast<float>(type_value.chr);
+		type_value.dbl = static_cast<double>(type_value.chr);
+	}else if (type == typeid(int)) {
 		type_value.it = std::stoi(cast_string);
 		type_value.chr = static_cast<char>(type_value.it);
 		type_value.flt = static_cast<float>(type_value.it);
@@ -137,11 +139,20 @@ void ScalarConverter::convert(std::string cast_string){
 		type_value.flt = static_cast<float>(type_value.dbl);
 	}
 	
-	std::cout << 
-				"char:" << 
-				(isprint(type_value.chr) ? std::string(1, type_value.chr) : std::string("Non displayed")) 
-				<< std::endl
-				<< "int:" << type_value.it << std::endl
-				<< "float:"  << type_value.flt << "f" << std::endl
-				<< "double:" << type_value.dbl << std::endl;
+	if (type_value.chrStr.compare(""))
+		std::cout << "char: " << type_value.chrStr << std::endl;
+	else
+		std::cout << "char: " <<  (isprint(type_value.chr) ? std::string(1, type_value.chr) : std::string("Non displayed"))  << std::endl;
+	if (type_value.itStr.compare(""))
+		std::cout << "int: " << type_value.itStr  << std::endl;
+	else
+		std::cout << "int: " << type_value.it  << std::endl;
+	if (type_value.fltStr.compare(""))
+		std::cout << "float :"  << type_value.fltStr  << std::endl;
+	else
+		std::cout << "float :"  << type_value.flt << "f" << std::endl;
+	if (type_value.dblStr.compare(""))
+		std::cout << "double: " << type_value.dblStr << std::endl;
+	else
+		std::cout << "double: " << type_value.dbl << std::endl;
 }

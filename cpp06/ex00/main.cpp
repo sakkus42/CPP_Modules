@@ -7,4 +7,5 @@ int main(int ac, char *arv[]) {
     } else {
           std::cout << "Arguments Invalid" << std::endl;
     }
+	
 }

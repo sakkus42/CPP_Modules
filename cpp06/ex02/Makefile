@@ -1,7 +1,7 @@
 CC = c++
 FLAGS =  -Wall -Wextra 
-STD =
-NAME = scalar
+STD = -std=c++98
+NAME = dynamic
 
 all: $(NAME)
 

@@ -6,12 +6,18 @@ Data* XOR (Data *a, Data *b) {
     Data* res = Serializer::deserialize(ptrA ^ ptrB);
     return res;
 }
-
+/*
+	curr = 0x0100 both = 0x10
+	->
+	curr = 0x10 both = 0x0101
+	->
+	curr = 0x01 both  0x10
+*/
 void insert(Data** node, int value) {
-    Data* new_node = new Data{
-        .value = value, 
-        .both = *node
-    };
+    Data* new_node = new Data;
+
+	new_node->value = value;
+	new_node->both = *node;
 
     if (*node != NULL) {
         (*node)->both = XOR(new_node, (*node)->both);
@@ -20,6 +26,13 @@ void insert(Data** node, int value) {
     *node = new_node;
 }
 
+/*
+	curr = 0x0100 both = 0x10 ' 0x000 = 0x10
+	->
+	curr = 0x10 both = 0x0101 prev = 0x0100 ^ 0x0101 = 0x01
+	->
+	curr = 0x01 both  0x10
+*/
 
 void printList (Data *head) 
 { 
@@ -29,7 +42,8 @@ void printList (Data *head)
  
     std::cout << "XOR Linked List written:" << std::endl; 
  
-    while (curr != NULL) { 
+    while (curr != NULL) 
+    { 
         std::cout<<curr->value<<" "; 
         next = XOR (prev, curr->both);
         prev = curr; 
@@ -37,7 +51,7 @@ void printList (Data *head)
     } 
     std::cout << std::endl;
 }
-
+ 
 void printReverseList(Data* head) {
     Data *curr = head; 
     Data *prev = NULL; 
