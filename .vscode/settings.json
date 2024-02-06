@@ -78,7 +78,10 @@
     "map": "cpp",
     "cerrno": "cpp",
     "climits": "cpp",
-    "queue": "cpp"
+    "queue": "cpp",
+    "cinttypes": "cpp",
+    "any": "cpp",
+    "strstream": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",

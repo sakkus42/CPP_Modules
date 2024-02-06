@@ -1,7 +1,7 @@
 CC = c++
 FLAGS =  -Wall -Wextra -Werror
-STD = 
-NAME = template
+STD = -std=c++98
+NAME = RPN
 
 all: $(NAME)
 
