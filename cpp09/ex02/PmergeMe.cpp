@@ -27,10 +27,10 @@ PmergeMe::PmergeMe(int ac, char** argv) {
     std::cout << "Time to process a range of " << list.size() <<
     " elements with std::list   : " << std::fixed << std::setprecision(4) 
     << this->lst_time * 1'000'000 << " us" << std::endl;
+
     std::cout << "Time to process a range of " << list.size() <<
     " elements with std::vector : " << std::fixed << std::setprecision(4) 
     << this->vc_time * 1'000'000 << " us" << std::endl;
-    
 }
 
 template<typename Iterator>
@@ -43,10 +43,10 @@ void PmergeMe::insertionSort(Iterator begin, Iterator end) {
             std::swap(*prev, *key);
             prev = std::prev(prev);
             key = std::prev(key);
+            std::cout << (*prev) << " " << (*key) << std::endl;
         }
     }
 }
-
 
 void  PmergeMe::mergeSort(std::list<int>& list) {
     std::clock_t start = clock();
@@ -56,7 +56,7 @@ void  PmergeMe::mergeSort(std::list<int>& list) {
         this->lst_time = (double)(end - start) / CLOCKS_PER_SEC;
         return;
     }
-    std::list<int>::iterator it_begin = list.begin();   
+    std::list<int>::iterator it_begin = list.begin();
     std::list<int>::iterator it_end = list.end();
     std::list<int>::iterator it_mid = list.begin();
     std::advance(it_mid, list.size() / 2);

@@ -31,7 +31,7 @@ input_file(fileName.c_str()), db_file("data.csv") {
             else
                 std::cout << "Error: bad input => " << date << std::endl;
         } else {
-            std::cout << "Error: bad input => " << date << std::endl;
+            std::cout << "Error: bad input => " << line << std::endl;
         }
     }
     
@@ -88,6 +88,7 @@ bool BitcoinExchange::isValiDate(std::string history) {
     std::getline(ss, year, '-');
     std::getline(ss, month, '-');
     std::getline(ss, day, '-');
+
     if (year.length() == 4 && month.length() == 2 && day.length() == 2 
         && isNumeric(year) && isNumeric(month) && isNumeric(day) 
         && std::stoi(month) <= 12 && std::stoi(day) <= 31)
@@ -98,6 +99,7 @@ bool BitcoinExchange::isValiDate(std::string history) {
 std::map<std::string, double>::iterator
 BitcoinExchange::getElementByHistory(std::string history) {
     std::map<std::string, double>::iterator it = db.find(history);
+
     if (it != db.end()) {
         return it;   
     } else if (isValiDate(history)) {
@@ -106,6 +108,5 @@ BitcoinExchange::getElementByHistory(std::string history) {
         db.erase(history);
         return it;
     }
-    std::cout << history << std::endl;
     return db.end();
 }

@@ -3,8 +3,6 @@
 #include <stack>
 #include <sstream>
 
-
-
 class RPN {
     private:
         std::stack<int> stack;

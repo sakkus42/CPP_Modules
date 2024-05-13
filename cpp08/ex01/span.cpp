@@ -8,13 +8,13 @@ void Span::addNumber(int i) {
     if (this->numbers.size() < this->size) {
         numbers.push_back(i);
     } else {
-        throw outOfRange(); // out of range
+        throw outOfRange();
     }
 }
 
 int     Span::shortestSpan() {
     if (this->numbers.size() < 2) {
-        throw notEnoughElements(); // need more number
+        throw notEnoughElements();
     }
     int minDistance = INT_MAX;
     vInt cpy = numbers;
@@ -41,7 +41,7 @@ int     Span::longestSpan() {
 void    Span::addNumber(vInt::iterator itBegin, vInt::iterator itEnd) {
     size_t dist  = std::distance(itBegin, itEnd);
     if (dist + numbers.size() > this->size) {
-        throw outOfRange(); // out of range
+        throw outOfRange();
     }
     for (vInt::iterator it = itBegin; it != itEnd; it++)
         numbers.push_back(*it);

@@ -13,6 +13,7 @@ class file_not_found : public std::exception {
         return "Error: could not open file.";
     }
 };
+
 class BitcoinExchange {
     private:
         std::fstream                    input_file;
